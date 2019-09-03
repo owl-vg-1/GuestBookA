@@ -5,6 +5,8 @@ namespace App\Controller;
 // use \App\Core\Config;
 use App\Model\DataStorage\Factory;
 use App\Core\Config;
+use App\Model\DataStorage\CSVStorag;
+
 
 
 class FeedBackController extends Controller {
@@ -30,9 +32,13 @@ class FeedBackController extends Controller {
 
     public function actionAddFeedBack() 
     {
-        // print_r ($_POST);
-        $this->fileStorage->add($_POST);
-        $this->redirect('?t='.$this->classNameNP().'&a=thanks');
+
+        print_r ($_POST);
+        $test = new CSVStorag('data.csv');
+        echo $test->write_file($_POST);
+
+        // $this->fileStorage->add($_POST);
+        // $this->redirect('?t='.$this->classNameNP().'&a=thanks');
     }
 
     public function actionThanks() {

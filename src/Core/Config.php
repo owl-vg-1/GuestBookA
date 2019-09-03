@@ -4,7 +4,7 @@ namespace App\Core;
 
 class Config {
 
-    public const FILE_NAME = __DIR__.'\\data.php';
+    public const FILE_NAME = __DIR__.'\\data.csv';
 
     // public static $save_feedback = '\App\Model\DataStorage\PhpStorage';
     // public static $file_type = 'php';
