@@ -8,18 +8,28 @@ class CSVStorag extends CrudEntity
     function get()
     {
 
-        // $this->checkFileExists('<?php return [];');
-        // return include($this->file_name);
+        $this->checkFileExists();
+        $array = file($this->file_name);
+        $res = [];
+        foreach ($array as $row) {
+            $res[] = explode(';', $row);
+        }
+
+        return $res;
+        // $pass = realpath($this->file_name);
+        // echo $pass;
+        // return fgetcsv(realpath($this->file_name));
 
     }
 
     function write_file(array $data_array)
     {
-        foreach ($data_array as $value) {
-            $str .= $value.";"; 
+        
+        $csv ='';
+        foreach ($data_array as $row) {
+            $csv .= implode(';', $row)."\n"; 
         }
-        $str .= "\n";
-        file_put_contents($this->file_name, $str, FILE_APPEND);
+        file_put_contents($this->file_name, $csv, FILE_APPEND);
 
     }
 

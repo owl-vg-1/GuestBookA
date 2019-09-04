@@ -32,13 +32,15 @@ class FeedBackController extends Controller {
 
     public function actionAddFeedBack() 
     {
+        //работает
+        // print_r ($_POST);
+        // $test = new CSVStorag('data.csv');
+        // echo $test->write_file($_POST);
+        // echo $test->get();
 
-        print_r ($_POST);
-        $test = new CSVStorag('data.csv');
-        echo $test->write_file($_POST);
 
-        // $this->fileStorage->add($_POST);
-        // $this->redirect('?t='.$this->classNameNP().'&a=thanks');
+        $this->fileStorage->add($_POST);
+        $this->redirect('?t='.$this->classNameNP().'&a=thanks');
     }
 
     public function actionThanks() {
