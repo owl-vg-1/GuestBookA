@@ -27,9 +27,10 @@ class CSVStorag extends CrudEntity
         
         $csv ='';
         foreach ($data_array as $row) {
-            $csv .= implode(';', $row)."\n"; 
+            $csv .= implode(';', $row); 
         }
-        file_put_contents($this->file_name, $csv, FILE_APPEND);
+        $csv .= "\n";
+        file_put_contents($this->file_name, $csv);
 
     }
 
